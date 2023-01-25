@@ -3,15 +3,15 @@ ageny any
 tools{
 maven 'Maven'
 }
-stages("Build Jar") {
-stage {
+stages {
+stage("Build Jar") {
 script {
 echo "Build Jar File"
 sh "mvn package"
 echo "Finished Building Jar File"
 }
-stages("Build Image") {
-stage {
+}
+stage("Build Image") {
 script {
 echo "Building docker Image..."
 withCredentials([usernamePassword(credentialsId: 'docker-repo', usernameVariable: 'USER', passwordVariable: 'PASS')]){
@@ -20,8 +20,8 @@ sh "echo $PASS | docker login -u $USER --password-stdin"
 sh "docker push  waseemkhandocker/my-docker-repo:jma-2.0"
 }
 }
-stages("Build Deploy") {
-stage {
+}
+stage("Build Deploy") {
 script {
 echo "Deploying Docker"
 }
