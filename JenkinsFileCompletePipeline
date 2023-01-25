@@ -1,17 +1,20 @@
 pipeline {
-ageny any
+agent any
 tools{
 maven 'Maven'
 }
 stages {
 stage("Build Jar") {
+steps{
 script {
 echo "Build Jar File"
 sh "mvn package"
 echo "Finished Building Jar File"
 }
 }
+}
 stage("Build Image") {
+steps{
 script {
 echo "Building docker Image..."
 withCredentials([usernamePassword(credentialsId: 'docker-repo', usernameVariable: 'USER', passwordVariable: 'PASS')]){
@@ -21,9 +24,12 @@ sh "docker push  waseemkhandocker/my-docker-repo:jma-2.0"
 }
 }
 }
+}
 stage("Build Deploy") {
+steps{
 script {
 echo "Deploying Docker"
+}
 }
 }
 }
