@@ -34,10 +34,18 @@ pipeline {
             }
         }
         stage('deploy') {
+            input {
+                message "Please Select A Version For Deploying......"
+                ok "Selection Done"
+                paramaters {
+                choice (name: 'ENV', choices: ['Build', 'Run', 'Deploying'], description: '')
+                }
+            }
             steps {
                 script {
                     echo "Deploying the application..."
                     echo "Deploying Version ${params.VERSION}"
+                    echo "The ${ENV} is Started....."
                 }
             }
         }
