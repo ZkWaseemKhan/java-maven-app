@@ -37,7 +37,7 @@ pipeline {
             input {
                 message "Please Select A Version For Deploying......"
                 ok "Selection Done"
-                paramaters {
+                parameters {
                 choice (name: 'ENV', choices: ['Build', 'Run', 'Deploying'], description: '')
                 }
             }
