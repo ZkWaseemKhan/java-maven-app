@@ -4,7 +4,7 @@ pipeline {
     agent any
     parameters{
         choice(name: 'execution_choose', choices: ['test', 'build', 'deploy'], description: '')
-        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+        //booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
         stage("init") {
@@ -44,18 +44,18 @@ pipeline {
                     ${execution_choose} == 'deploy'
                 }
             }
-            input {
-                message "Please Select A Version For Deploying......"
-                ok "Selection Done"
-                parameters {
-                choice (name: 'ENV', choices: ['Build', 'Run', 'Deploying'], description: '')
-                }
-            }
+           // input {
+           //     message "Please Select A Version For Deploying......"
+           //    ok "Selection Done"
+           //     parameters {
+           //     choice (name: 'ENV', choices: ['Build', 'Run', 'Deploying'], description: '')
+           //     }
+           // }
             steps {
                 script {
-                    echo "Deploying the application..."
-                    echo "Deploying Version ${params.VERSION}"
-                    echo "The ${ENV} is Started....."
+                    echo "Deploying the Tst Stage application..."
+             //       echo "Deploying Version ${params.VERSION}"
+             //       echo "The ${ENV} is Started....."
                 }
             }
         }
