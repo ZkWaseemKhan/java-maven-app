@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     echo "building jar"
-                    buildApp()
+                    buildApp() 'Building the app with passing params'
                     //gv.buildJar()
                 }
             }
