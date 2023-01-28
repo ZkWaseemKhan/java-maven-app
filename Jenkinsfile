@@ -1,6 +1,6 @@
 
 
-def gv
+// def gv
 
 pipeline {
     agent any
@@ -8,8 +8,8 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    buildApp()
-                   // echo "building jar"
+                    //buildApp()
+                    echo "building jar"
                     //gv.buildJar()
                 }
             }
