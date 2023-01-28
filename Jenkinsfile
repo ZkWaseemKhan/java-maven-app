@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 @Library('Jenkins-Shared-Library')
- def gv
+def gv
 
 pipeline {
     agent any
@@ -8,9 +8,7 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar"
-                    buildApp "Building the app with passing params"
-                    //gv.buildJar()
+                    buildJar()
                 }
             }
         }
@@ -18,7 +16,7 @@ pipeline {
             steps {
                 script {
                     echo "building image"
-                    //gv.buildImage()
+                    buildImage()
                 }
             }
         }
