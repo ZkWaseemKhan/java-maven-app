@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "building image"
-                    buildImage()
+                    buildImage 'waseemkhandocker/my-docker-repo:java-maven-app-from-shared-4.0'
                 }
             }
         }
