@@ -18,7 +18,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    echo "building image"
+                    echo "building image This is Jenkins file"
                     buildImage 'waseemkhandocker/my-docker-repo:java-package-maven-app-from-shared-5.0'
                 }
             }
