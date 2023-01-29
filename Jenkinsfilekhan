@@ -2,24 +2,24 @@
 def gv
 pipeline {
     agent any
-    parameters{
-        choice(name: 'execution_choose', choices: ['test', 'build', 'deploy'], description: '')
+    //parameters{
+    //    choice(name: 'execution_choose', choices: ['test', 'build', 'deploy'], description: '')
         //booleanParam(name: 'executeTests', defaultValue: true, description: '')
-    }
+   // }
     stages {
-        stage("init") {
-            steps {
-                script {
-                   gv = load "script.groovy"
-                }
-            }
-        }
+        //stage("init") {
+         //   steps {
+          //      script {
+           //        gv = load "script.groovy"
+            //    }
+         //   }
+        //}
         stage('build') {
-            when {
+           /* when {
                 expression {
                     execution_choose == 'build'
                 }
-            }
+            } */
             steps {
                 script {
                     gv.buildApp()
@@ -27,11 +27,11 @@ pipeline {
             }
         }
         stage('test') {
-            when {
+          /*  when {
                 expression {
                     execution_choose == 'test'
                 }
-            }
+            } */
             steps {
                 script {
                     echo "Testing the application..."
@@ -39,11 +39,11 @@ pipeline {
             }
         }
         stage('deploy') {
-            when {
+          /*  when {
                 expression {
                     execution_choose == 'deploy'
                 }
-            }
+            } */
            // input {
            //     message "Please Select A Version For Deploying......"
            //    ok "Selection Done"
