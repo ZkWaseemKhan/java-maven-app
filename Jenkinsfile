@@ -19,7 +19,9 @@ pipeline {
             steps {
                 script {
                     echo "building image This is Jenkins file"
-                    buildImage 'waseemkhandocker/my-docker-repo:java-package-maven-app-from-shared-5.0'
+                    buildImage 'waseemkhandocker/my-docker-repo:java-package1-maven-app-from-shared-5.0'
+                    dockerLogin()
+                    dockerPush 'waseemkhandocker/my-docker-repo:java-package1-maven-app-from-shared-5.0'
                 }
             }
         }
